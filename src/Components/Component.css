@@ -1,0 +1,46 @@
+/* src/HomePage.css */
+
+.homepage {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.homepage-header {
+    background-color: #4CAF50;
+    padding: 20px;
+    color: white;
+}
+
+.homepage-header h1 {
+    margin: 0;
+}
+
+.homepage-content {
+    margin: 20px 0;
+}
+
+.homepage-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.homepage-content p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.homepage-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.homepage-button:hover {
+    background-color: #45a049;
+}

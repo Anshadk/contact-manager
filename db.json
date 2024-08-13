@@ -1,6 +1,34 @@
 {
   "contacts": [
-    { "id": 1, "title": "Hello World", "author": "John Doe" },
-    { "id": 2, "title": "React is Awesome", "author": "Jane Doe" }
+    {
+      "id": 1,
+      "name": "John Doe",
+      "phone_num": "555-1234",
+      "address": "123 Main St, Anytown, USA"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "phone_num": "555-5678",
+      "address": "456 Elm St, Othertown, USA"
+    },
+    {
+      "id": 3,
+      "name": "Alice Johnson",
+      "phone_num": "555-8765",
+      "address": "789 Oak St, Sometown, USA"
+    },
+    {
+      "id": 4,
+      "name": "Bob Brown",
+      "phone_num": "555-4321",
+      "address": "321 Pine St, Anycity, USA"
+    },
+    {
+      "id": 5,
+      "name": "Eve Davis",
+      "phone_num": "555-9876",
+      "address": "654 Maple St, Yourtown, USA"
+    }
   ]
 }
