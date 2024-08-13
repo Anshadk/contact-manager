@@ -1,0 +1,6 @@
+{
+  "contacts": [
+    { "id": 1, "title": "Hello World", "author": "John Doe" },
+    { "id": 2, "title": "React is Awesome", "author": "Jane Doe" }
+  ]
+}
