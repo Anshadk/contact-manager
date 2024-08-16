@@ -1,15 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
+import AddContact from './AddContact';
+import axios from 'axios';
 
 function ListContacts() {
-    const [contacts, setContacts] = useState([])
+
+     const [contacts, setContacts] = useState([])
     
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/contacts')
+    //       .then((response) => response.json())
+    //       .then((data) => setContacts(data));
+    //   }, []);
+    //   console.log(contacts);
+
+    //using axios
     useEffect(() => {
-        fetch('http://localhost:5000/contacts')
-          .then((response) => response.json())
-          .then((data) => setContacts(data));
+        axios.get('http://localhost:5000/contacts')
+          .then((response) => {
+            setContacts(response.data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       }, []);
-      console.log(contacts);
 
   return (
     <>
@@ -24,6 +38,8 @@ function ListContacts() {
         ))}
       </ul>
     </div>
+
+    <AddContact/>
     </>
   )
 }
