@@ -1,15 +1,17 @@
-import { useState } from 'react'
-import Navbar from './Components/Navbar'
-import ListContacts from './Components/ListContacts'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ListContacts from "./Components/ListContacts";
+import AddContact from "./Components/AddContact";
 //import './App.css'
 
 function App() {
-
   return (
-    <>
-     <ListContacts/>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<ListContacts />} />
+        <Route path="/add" element={<AddContact />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
