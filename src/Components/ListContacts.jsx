@@ -26,6 +26,14 @@ function ListContacts() {
           });
       }, [contacts]);
 
+    const handleDelete= async (id)=>{
+      await axios.delete(`http://localhost:5000/contacts/${id}`)
+      .then(alert('Contact deleted successfully!'))
+      .catch((error) => {
+        console.error(error);
+      });
+    }
+
   return (
     <>
     <Navbar/>
@@ -43,7 +51,7 @@ function ListContacts() {
             </div>
             <div>
               <button className="btn btn-primary btn-sm me-2">Edit</button>
-              <button className="btn btn-danger btn-sm">Delete</button>
+              <button className="btn btn-danger btn-sm" onClick={() => handleDelete(contact.id)}>Delete</button>
             </div>
           </li>
         ))}
