@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Navbar() {
+function Navbar({hide}) {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -15,9 +15,9 @@ function Navbar() {
             <ul className="navbar-nav me-auto">
               
             </ul>
-            <Link to="/add" className="btn btn-success ms-auto">
+           {hide && <Link to="/add" className="btn btn-success ms-auto">
               Add Contact
-            </Link>
+            </Link>}
           </div>
         </div>
       </nav>

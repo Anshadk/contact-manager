@@ -1,7 +1,32 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
 function EditContact({ isOpen, onClose, contact }) {
-  if (!contact) return null; // Handle case where no contact is passed
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    if (contact) {
+      setName(contact.name || '');
+      setPhone(contact.phone || '');
+      setEmail(contact.email || '');
+    }
+  }, [contact]);
+
+  const handleEditContact = async(e) => {
+    e.preventDefault();
+    const updatedContact = { name, phone, email };
+    try {
+      await axios.put(`http://localhost:5000/contacts/${contact.id}`, updatedContact);
+
+      onClose();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  if (!contact) return null;
 
   return (
     <>
@@ -16,21 +41,42 @@ function EditContact({ isOpen, onClose, contact }) {
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">Edit Contact</h1>
-              <button  type="button"  className="btn-close" data-bs-dismiss="modal"  aria-label="Close"  onClick={onClose}  ></button>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                onClick={onClose}
+              ></button>
             </div>
             <div className="modal-body">
-              <form>
+              <form >
                 <div className="form-group">
                   <label>Name</label>
-                  <input type="text" className="form-control" defaultValue={contact.name} />
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
                 </div>
                 <div className="form-group">
                   <label>Phone</label>
-                  <input type="text" className="form-control" defaultValue={contact.phone} />
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
                 </div>
                 <div className="form-group">
                   <label>Email</label>
-                  <input type="email" className="form-control" defaultValue={contact.email} />
+                  <input
+                    type="email"
+                    className="form-control"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </div>
               </form>
             </div>
@@ -38,7 +84,9 @@ function EditContact({ isOpen, onClose, contact }) {
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={onClose}>
                 Close
               </button>
-              <button type="button" className="btn btn-primary">Save changes</button>
+              <button type="button" className="btn btn-primary" onClick={handleEditContact}>
+                Save changes
+              </button>
             </div>
           </div>
         </div>

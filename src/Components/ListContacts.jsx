@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
 import Navbar from '../Components/Navbar'
-import AddContact from './AddContact';
 import axios from 'axios';
 import EditContact from './EditContact';
 
@@ -38,17 +37,17 @@ function ListContacts() {
     }
     const handleEdit = (contact) => {
       setSelectedContact(contact);
-      setIsModalOpen(true); // Open the modal
+      setIsModalOpen(true); 
     };
   
     const handleCloseModal = () => {
       setIsModalOpen(false);
-      setSelectedContact(null); // Clear selected contact when modal is closed
+      setSelectedContact(null);
     };
 
   return (
     <>
-    <Navbar/>
+    <Navbar hide={true}/>
     <div className="container mt-4">
       {/* <h1 className="mb-4">Contacts</h1> */}
       <ul className="list-group">

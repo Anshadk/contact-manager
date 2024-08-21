@@ -1,21 +1,28 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-import EditContact from "./EditContact";
+import { useNavigate } from "react-router-dom";
 
 function AddContact() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const navigate = useNavigate();
 
   const handleAddContact = (e) => {
     e.preventDefault();
+    if (!name || !phone || !email) {
+      alert('Please fill in all fields.');
+      return;
+    }
     const newContact = { name, phone, email };
     axios.post('http://localhost:5000/contacts', newContact)
       .then(() => {
         setName('');
         setPhone('');
-        setEmail('');
+        setEmail(''); // to reset form after submitting
+        alert("Added Succesfully")
+        navigate('/');
       })
       .catch(error => console.error(error));
     console.log(name, phone, email);
@@ -23,7 +30,7 @@ function AddContact() {
 
   return (
     <>
-    <Navbar/>
+    <Navbar />
     <div
       style={{
         display: "flex",
@@ -91,7 +98,6 @@ function AddContact() {
         </button>
       </form>
     </div>
-    <EditContact/>
     </>
   );
 }
