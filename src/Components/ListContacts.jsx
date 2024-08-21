@@ -3,10 +3,13 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
 import AddContact from './AddContact';
 import axios from 'axios';
+import EditContact from './EditContact';
 
 function ListContacts() {
 
      const [contacts, setContacts] = useState([])
+     const [selectedContact, setSelectedContact] = useState(null);
+     const [isModalOpen, setIsModalOpen] = useState(false);
     
     // useEffect(() => {
     //     fetch('http://localhost:5000/contacts')
@@ -33,6 +36,15 @@ function ListContacts() {
         console.error(error);
       });
     }
+    const handleEdit = (contact) => {
+      setSelectedContact(contact);
+      setIsModalOpen(true); // Open the modal
+    };
+  
+    const handleCloseModal = () => {
+      setIsModalOpen(false);
+      setSelectedContact(null); // Clear selected contact when modal is closed
+    };
 
   return (
     <>
@@ -50,13 +62,18 @@ function ListContacts() {
               {contact.email}
             </div>
             <div>
-              <button className="btn btn-primary btn-sm me-2">Edit</button>
+              
+              <button className="btn btn-primary btn-sm me-2"onClick={() => handleEdit(contact)}>Edit</button>
               <button className="btn btn-danger btn-sm" onClick={() => handleDelete(contact.id)}>Delete</button>
             </div>
           </li>
         ))}
       </ul>
     </div>
+    
+    {selectedContact && ( <EditContact isOpen={isModalOpen} onClose={handleCloseModal}  contact={selectedContact} />
+      )}
+
     </>
   )
 }

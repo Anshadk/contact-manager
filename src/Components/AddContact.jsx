@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Navbar from "./Navbar";
+import EditContact from "./EditContact";
 
 function AddContact() {
   const [name, setName] = useState('');
@@ -90,6 +91,7 @@ function AddContact() {
         </button>
       </form>
     </div>
+    <EditContact/>
     </>
   );
 }
