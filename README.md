@@ -1,8 +1,15 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple Contact Manager application built with React, powered by JSON Server for backend API simulation. The project allows users to add, view, edit, and manage contacts in a user-friendly interface. It's a great starting point for learning React, basic CRUD operations, and how to interact with a RESTful API.
 
-Currently, two official plugins are available:
+Features:
+  Add Contacts: Users can add new contacts with a name and email address.
+  View Contacts: All added contacts are displayed in a list format.
+  Edit Contacts: Users can update the details of existing contacts through an edit form.
+  
+JSON Server Integration: The project uses JSON Server to simulate a backend, allowing for API-like interaction without a full backend setup.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Technologies Used:
+  React: For building the user interface.
+  Axios: For making HTTP requests to the JSON Server.
+  JSON Server: For simulating a REST API and persisting data.
+  Bootstrap:For styling
