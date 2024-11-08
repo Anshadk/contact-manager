@@ -14,3 +14,8 @@ This project leverages JSON Server to simulate backend operations, enabling API-
 - Axios: For making HTTP requests to the simulated backend.
 - JSON Server: For simulating a REST API and persisting contact data.
 - Bootstrap: For responsive and user-friendly styling.
+
+
+### To Run Project:
+    -json-server --watch db.json --port 5000
+    -npm run dev
